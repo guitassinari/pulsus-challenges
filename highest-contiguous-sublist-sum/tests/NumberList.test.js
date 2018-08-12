@@ -38,7 +38,7 @@ describe('Number List Sublist Iterator', () => {
     describe('with startIndex and finishIndex received', () => {
       it('returns a NumberList of the subarray of the original array defined by startIndex and finishIndex', () => {
         const startIndex = 2, finishIndex = 4
-        expect(numberList.getSublist(2, 4).toArray()).toEqual(originalNumbersArray.slice(startIndex, finishIndex))
+        expect(numberList.getSublist(2, 4).toArray()).toEqual(originalNumbersArray.slice(startIndex, finishIndex + 1))
       })
     })
 
