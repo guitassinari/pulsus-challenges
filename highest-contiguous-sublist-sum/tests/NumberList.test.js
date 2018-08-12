@@ -3,12 +3,11 @@ const NumberList = require('../models/NumberList')
 const expect = require('expect')
 
 describe('Number List Sublist Iterator', () => {
-  const originalNumbersArray = [1, 2, 3, 6, 8, 9]
+  const originalNumbersArray = [1, 2, 3, -7, 6, 8, 9]
   let numberList
   beforeEach(() => {
     numberList = new NumberList(originalNumbersArray)
   })
-
 
   describe('#sum', () => {
     it('sums all numbers in the original array', () => {
@@ -47,6 +46,15 @@ describe('Number List Sublist Iterator', () => {
         const subgroup = numberList.getSublist()
         expect(subgroup).toBeInstanceOf(NumberList)
         expect(subgroup.toArray()).toEqual(originalNumbersArray)
+      })
+    })
+  })
+
+  describe('#getHighestSumSublistIndexes', () => {
+    it('returns the start and end index of the highest sum contiguous sublist', () => {
+      expect(numberList.getHighestSumSublistIndexes()).toEqual({
+        start: 4,
+        finish: 6
       })
     })
   })
