@@ -1,3 +1,5 @@
+const ContiguousSublistIterator = require('./ContiguousSublistIterator')
+
 function validNumberArray(numbersArray) {
   // NaN = Not a Number
   return Array.isArray(numbersArray) && numbersArray.every(elem => isNaN(elem) === false)
@@ -5,10 +7,6 @@ function validNumberArray(numbersArray) {
 
 class NumberList {
   constructor(numbersArray) {
-    if(validNumberArray(numbersArray) === false) {
-      throw new Error('NumberList: The passed array is invalid')
-    }
-
     this.numbers = numbersArray.map(Number)
   }
 
@@ -31,6 +29,25 @@ class NumberList {
 
   toArray() {
     return [...this.numbers]
+  }
+
+  getHighestSumSublistIndexes() {
+    const contiguousSublistIterator = new ContiguousSublistIterator(this)
+
+    let currentSublist = contiguousSublistIterator.next()
+    let highestSumSublistIndexes = contiguousSublistIterator.getCurrentIndexes()
+    let highestSum = currentSublist.sum()
+
+    while (currentSublist !== null) {
+      if (currentSublist.sum() > highestSum) {
+        highestSumSublistIndexes = contiguousSublistIterator.getCurrentIndexes()
+        highestSum = currentSublist.sum()
+      }
+
+      currentSublist = contiguousSublistIterator.next()
+    }
+
+    return highestSumSublistIndexes
   }
 }
 

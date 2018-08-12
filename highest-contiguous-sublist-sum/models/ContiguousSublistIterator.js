@@ -1,11 +1,5 @@
-const NumberList = require('./NumberList')
-
 class ContiguousSublistIterator {
   constructor(numberList) {
-    if(numberList instanceof NumberList === false) {
-      throw new Error('ContiguousSublistIterator: the received parameter is not a NumberList')
-    }
-
     this.numberList = numberList
     this.controls = {
       startIndex: 0,
