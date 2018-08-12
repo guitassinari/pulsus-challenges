@@ -1,5 +1,9 @@
 # Desafios Pulsus
 
+## Informações gerais
+Todas as aplicações foram feitas em Javascript, para serem executados em ambiente NodeJS.
+A versão do NodeJS utilizada foi a 8.11.1.
+
 ## Execução das aplicações
 Cada aplicação será identificada por uma pasta na raiz do projeto. Dentro destas pastas
 haverá o arquivo `mainTest.test.js` que pode ser executado através do `NodeJS` da seguinte maneira
@@ -30,6 +34,10 @@ mocha [filepath]
 ```
 onde `filepath` é o nome do arquivo de testes que deseja executar.
 
+## Helpers
+
+### Arguments
+Criado especificamente para capturar os argumentos passados na execução da aplicação.
 
 ## Desafio 1: Sublista contígua de maior soma
 A partir de uma lista de números, encontrar a sua sublista contígua de maior soma de seus elementos
@@ -51,7 +59,7 @@ Responsável por encapsular uma lista de números e métodos úteis à solução
 do problema, como `sum` (soma todos os valores da lista e retorna o resultado)
  e `getSublist` (retorna uma sublista da lista original entre os índices escolhidos)
 
-##### NumberListContiguousSublistIterator
+##### ContiguousSublistIterator
 Responsável por iterar sobre todas possíveis sublistas contíguas de uma NumberList.
 Dentre os principais motivos para a criação dessa classe estão a separação de responsabilidades,
 melhor leitura do código, e possibilidade de criarmos novos iteradores com outras
