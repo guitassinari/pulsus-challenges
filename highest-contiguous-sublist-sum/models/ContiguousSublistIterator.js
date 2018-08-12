@@ -1,9 +1,9 @@
 const NumberList = require('./NumberList')
 
-class NumberListContiguousSublistIterator {
+class ContiguousSublistIterator {
   constructor(numberList) {
     if(numberList instanceof NumberList === false) {
-      throw new Error('NumberListContiguousSublistIterator: the received parameter is not a NumberList')
+      throw new Error('ContiguousSublistIterator: the received parameter is not a NumberList')
     }
 
     this.numberList = numberList
@@ -18,7 +18,14 @@ class NumberListContiguousSublistIterator {
     if(this._iteratedAllSubgroups()) {
       return null
     }
-    return this.numberList.getSubgroup(this.controls.startIndex, this.controls.finishIndex)
+    return this.numberList.getSublist(this.controls.startIndex, this.controls.finishIndex)
+  }
+
+  getCurrentIndexes() {
+    return {
+      start: this.controls.startIndex,
+      finish: this.controls.finishIndex
+    }
   }
 
   _updateControlsForNextSubgroup() {
@@ -39,4 +46,4 @@ class NumberListContiguousSublistIterator {
   }
 }
 
-module.exports = NumberListContiguousSublistIterator
+module.exports = ContiguousSublistIterator
