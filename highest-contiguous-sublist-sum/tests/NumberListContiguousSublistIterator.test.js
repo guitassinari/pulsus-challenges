@@ -1,4 +1,4 @@
-const SublistIterator = require('../models/NumberListContiguousSublistIterator')
+const SublistIterator = require('../models/ContiguousSublistIterator')
 const NumberList = require('../models/NumberList')
 
 const expect = require('expect')

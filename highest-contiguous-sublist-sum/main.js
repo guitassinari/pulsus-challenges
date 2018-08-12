@@ -1,32 +1,29 @@
 const NumberList = require('./models/NumberList')
-const ContiguousSublistIterator = require('./models/NumberListContiguousSublistIterator')
+const ContiguousSublistIterator = require('./models/ContiguousSublistIterator')
+const Arguments = require('./helpers/arguments')
 
-const arguments = process.argv
-const numbersAsStrings = arguments.slice(2)
-const numbers = numbersAsStrings.map(Number)
+const arguments = Arguments.get()
+const argumentNumbers = arguments.map(Number)
 
-const numberList = new NumberList(numbers)
-const sublistIterator = new ContiguousSublistIterator(numberList)
+const numberList = new NumberList(argumentNumbers)
+const contiguousSublistIterator = new ContiguousSublistIterator(numberList)
 
-let currentSublist = sublistIterator.next()
-let highestSumSublist = currentSublist
+let currentSublist = contiguousSublistIterator.next()
+let highestSumSublistIndexes = contiguousSublistIterator.getCurrentIndexes()
 let highestSum = currentSublist.sum()
 
 while (currentSublist !== null) {
   if (currentSublist.sum() > highestSum) {
-    highestSumSublist = currentSublist
+    highestSumSublistIndexes = contiguousSublistIterator.getCurrentIndexes()
     highestSum = currentSublist.sum()
   }
 
-  currentSublist = sublistIterator.next()
+  currentSublist = contiguousSublistIterator.next()
 }
 
-console.log('\nThe contiguous sublist with highest sum is:')
-console.log(highestSumSublist.toArray())
-console.log('\nWhich sum is:')
-console.log(highestSum)
-
-
+console.log(`\nThe contiguous sublist with highest begins at: ${highestSumSublistIndexes.start}`)
+console.log(`\nAnd ends at: ${highestSumSublistIndexes.finish}`)
+console.log(`\nIt's sum is: ${highestSum}`)
 
 
 
