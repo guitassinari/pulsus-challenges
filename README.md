@@ -6,17 +6,17 @@ A versão do NodeJS utilizada foi a 8.11.1.
 
 ## Execução das aplicações
 Cada aplicação será identificada por uma pasta na raiz do projeto. Dentro destas pastas
-haverá o arquivo `mainTest.test.js` que pode ser executado através do `NodeJS` da seguinte maneira
+haverá o arquivo `main.js` que pode ser executado através do `NodeJS` da seguinte maneira
 
 ```
-node mainTest.test.js [parameters]
+node main.js [parameters]
 ```
 
 onde `parameters` são argumentos que podem ser passados para as aplicações
 e variam de uma para a outra.
 
 OBS: os arquivos denominados `_main.js` contém o fluxo principal da aplicação, enquanto
-`main.test.jst.js` utiliza essa lógica e é responsável apenas por mostrar os resultados na tela.
+`main.js` utiliza essa lógica e é responsável apenas por mostrar os resultados na tela.
 Isto foi feito para que `_main.js` possa exportar este fluxo através e, portanto,
 possibilitando que o mesmo seja testado.
 
@@ -43,6 +43,15 @@ Criado especificamente para capturar os argumentos passados na execução da apl
 A partir de uma lista de números, encontrar a sua sublista contígua de maior soma de seus elementos
 e retornar o índice de início e fim.
 
+### Execução
+Para executar a aplicação, utilize o `Node.JS` para executar o arquivo `main.js` e passe como
+argumento números separados por espaço. Os números podem conter os sinais `-` ou `+` para 
+números positivos e negativos.
+
+```
+node main.js 1 -2 3 +2 -1 -2 10
+```
+
 ### Algoritmo
 O algoritmo escolhido foi o mais simples possível.
 Iremos iterar sobre todas as possíveis sublistas da lista original, guardando sempre
@@ -68,6 +77,14 @@ finalidades e performances, que poderiam ser utilizados facilmente no lugar do a
 ## Desafio 2: Maior cadeia de caracteres repetidos
 A partir de uma string, encontrar a maior cadeia de caracteres repetidos
 na mesma.
+
+### Execução
+Para executar a aplicação, utilize o `Node.JS` para executar o arquivo `main.js` e passe como
+argumento uma única palavra.
+
+```
+node main.js umaPalavraQualquerComNumeros222
+```
 
 ### Algoritmo
 Javascript possui suporte a Expressões Regulares, que é uma ferramenta extremamente
